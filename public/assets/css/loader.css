@@ -1,0 +1,72 @@
+:root {
+    --loaderSize: 3vw;
+}
+
+.loaderCover {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    transform: scale(1);
+    display: none;
+    z-index: 999;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--loaderSize);
+    height: var(--loaderSize);
+}
+
+.loader1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 40%;
+    border-radius: 50% / 100% 100% 0 0;
+    border: calc(var(--loaderSize) * 0.1) solid white;
+    border-bottom: none;
+    transform-origin: bottom;
+    animation: 0.8s linear 0s infinite rotateZ;
+}
+
+.loader2{
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 50%;
+    height: 25%;
+    border-radius: 50% / 100% 100% 0 0;
+    border: calc(var(--loaderSize) * 0.1) solid white;
+    border-bottom: none;
+    transform-origin: bottom;
+    animation: 1s linear 0s infinite reverse rotateZ;
+}
+
+.loader3{
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40%;
+    height: 40%;
+    background: white;
+    border-radius: 50%;
+    transform-origin: bottom;
+    animation: 1s linear 0s infinite rotateY;
+}
+
+@keyframes rotateZ {
+from { transform: rotate(0); }
+to   { transform: rotate(360deg); }
+}
+
+@keyframes rotateY {
+from { transform: rotateY(0); }
+to   { transform: rotateY(360deg); }
+}

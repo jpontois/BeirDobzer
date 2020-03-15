@@ -1,0 +1,27 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+    z-index: 998;
+}
+
+nav li {
+    display: inline-block;
+    padding: 0 40px;
+}
+
+nav a:link, nav a:visited {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 50px;
+    color: white;
+}
+
+nav a:hover {
+    color: orange;
+}

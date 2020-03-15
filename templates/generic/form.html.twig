@@ -1,0 +1,21 @@
+{% block body %}
+
+<article class="content">
+
+    <h1>{{ title }}</h1>
+
+    {% if actionHasParameter %}
+        {{ form_start(form, {'action': path(action,{'id' : id} ), 'method': 'POST', 'enctype': 'multipart/form-data'}) }}    
+    {% else %}
+        {{ form_start(form, {'action': path(action), 'method': 'POST', 'enctype': 'multipart/form-data'}) }}
+    {% endif %}
+
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+    <br/>
+    <a class="menu cancel" href="{{ path(path ~ 'List') }}">Annuler</a>
+
+</article>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% block body %}
+    <article class="content">
+        <h1> {{ title }} </h1>
+
+            <a class="menu boutonCRUD" href="{{ path(path ~ 'Create') }}">Nouveau</a>
+
+        <ul>
+            {% for item in table %}
+                {% if isNotGeneric %}
+                    {% include customList ~ ".html.twig" %}
+                {% else %}
+                    <li class="li_generic">
+                        {{ item.name }}
+                        <br/>
+                        <a class="menu boutonCRUD" href="{{ path(path ~ 'Edit',  {'id' : item.id}) }}">Editer</a>
+                        <a class="menu boutonCRUD" href="{{ path(path ~ 'Delete',  {'id' : item.id}) }}">Supprimer</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+    </article>
+{% endblock %}

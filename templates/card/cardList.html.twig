@@ -1,0 +1,27 @@
+<li class="li_card">
+
+        {% if 'Delete' == path %}
+            <div class="count"> x{{ quantity }} </div>
+            <br/>
+        {% endif %}
+
+        {% if 'card' == path %}
+            <a class="menu" href="{{ path(path ~ 'Edit', {'id' : item.id}) }}">
+        {% else %}
+            <a class="menu" href="{{ path('deckCard' ~ path, { 'deck' : id, 'card' : item.id }) }}">
+        {% endif %}
+
+        <div class="card" style="background-image: url({{ pathImg }}{{ item.imageName }})">
+            <div class="cardTitle">{{ item.name }}</div>
+            <div class="cardFaction">{{ item.faction.name }}</div>
+            <div class="cardCost">{{ item.cost }}</div>
+            <div class="cardHealth">{{ item.health }}</div>
+            <div class="cardAttack">{{ item.attack }}</div>
+        </div>
+
+        {% if 'card' == path %}
+            <br/>
+            <a class="menu boutonCRUD" href="{{ path(path ~ 'Delete', {'id' : item.id}) }}">Supprimer</a>
+        {% endif %}
+    </a>
+</li>

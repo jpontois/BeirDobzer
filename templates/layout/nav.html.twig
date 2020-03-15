@@ -1,0 +1,17 @@
+<nav>
+    <ul>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
+        {% else %}
+            <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
+        {% endif %}
+
+        {% if is_granted('ROLE_USER') %}
+            <li><a class="menu" href="{{ path('cardList') }}">Cartes</a></li>
+            <li><a class="menu" href="{{ path('factionList') }}">Factions</a></li>
+            <li><a class="menu" href="{{ path('deckList') }}">Decks</a></li>
+        {% endif %}
+    </ul>
+</nav>
+ 

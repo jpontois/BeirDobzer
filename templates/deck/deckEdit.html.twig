@@ -1,0 +1,33 @@
+{% block body %}
+    <article class="content">
+        <h1> {{ title }} </h1>
+
+        {{ form_start(form, {'action': path(action, {'id' : id, 'deck' : id}), 'method': 'POST', 'enctype': 'multipart/form-data'}) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+        <ul id="deck">
+
+            {% if deckCard is empty %}
+                <span>Le deck est vide. Cliquez sur une carte de la collection pour l'ajouter au deck.</span>
+            {% endif %}
+
+            {% set path = 'Delete' %}
+
+            {% for item in deckCard %}
+                {% set quantity = item.quantity %}
+                {% set item = item.card %}
+                {% include "card/cardList.html.twig" %}
+            {% endfor %}
+        </ul>
+
+        <ul>
+            {% set path = 'Create' %}
+            
+            {% for item in card %}
+                {% include "card/cardList.html.twig" %}
+            {% endfor %}
+        </ul>
+
+    </article>
+{% endblock %}

@@ -1,0 +1,120 @@
+:root {
+    --cardSize: 12vw;
+}
+
+#deck {
+    background-color: rgba(0,0,0,0.1);
+    min-height: calc(var(--cardSize) * 1);
+    margin-top: 3%;
+    transform: scale(1);
+}
+
+#deck span {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.li_card {
+    display: inline-block;
+    margin: 3%;
+}
+
+.count {
+    width: var(--cardSize);
+    display: inline-block;
+    margin-bottom: calc(var(--cardSize) * 0.065);
+    padding: calc(var(--cardSize) * 0.02) 0;
+    background: grey;
+    color: white;
+    border-radius: calc(var(--cardSize) * 0.05);
+}
+
+.card {
+    width: var(--cardSize);
+    height: calc(var(--cardSize) * 1.5);
+    border-radius: calc(var(--cardSize) * 0.05);
+    box-shadow: inset 0px 0px calc(var(--cardSize) * 0.2) calc(var(--cardSize) * 0.15) black;
+    text-align:center;
+    color:white;
+    background-position:center center;
+    background-size:cover;
+    transform: scale(1);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+
+.cardTitle {
+    position: absolute;
+    bottom: calc(var(--cardSize) * 0.57);
+    left: calc(var(--cardSize) * 0.05);
+    width: calc(var(--cardSize) * 0.9);
+    font-size: calc(var(--cardSize) * 0.09);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.cardFaction {
+    position: absolute;
+    top: calc(var(--cardSize) * 0.95);
+    left: calc(var(--cardSize) * 0.05);
+    width: calc(var(--cardSize) * 0.84);
+    padding: calc(var(--cardSize) * 0.03);
+    line-height: calc(var(--cardSize) * 0.07);
+    border-radius: calc(var(--cardSize) * 0.03);
+    font-size: calc(var(--cardSize) * 0.08);
+    border: 0.5px solid rgb(100,100,100);
+    background: rgba(50, 25, 25, 0.5);
+    font-weight: lighter;
+}
+
+.cardCost {
+    position: absolute;
+    top: calc(var(--cardSize) * -0.04);
+    left: calc(var(--cardSize) * -0.04);
+    width: calc(var(--cardSize) * 0.25);
+    height: calc(var(--cardSize) * 0.25);
+    border-radius: 50%;
+    line-height: calc(var(--cardSize) * 0.25);
+    border:1.5px solid rgb(10,10,70);
+    background: url(/img/card/cost.png);
+    background-position:center center;
+    background-size: 110%;
+    font-weight: lighter;
+}
+
+.cardHealth {
+    position: absolute;
+    bottom: calc(var(--cardSize) * -0.04);
+    left: calc(var(--cardSize) * -0.04);
+    width: calc(var(--cardSize) * 0.25);
+    height: calc(var(--cardSize) * 0.25);
+    border-radius: 50%;
+    line-height: calc(var(--cardSize) * 0.25);
+    border:1.5px solid rgb(70,10,10);
+    background: url(/img/card/health.png);
+    background-position:center center;
+    background-size: 110%;
+    font-weight: lighter;
+}
+
+.cardAttack {
+    position: absolute;
+    bottom: calc(var(--cardSize) * -0.04);
+    right: calc(var(--cardSize) * -0.04);
+    width: calc(var(--cardSize) * 0.25);
+    height: calc(var(--cardSize) * 0.25);
+    border-radius: 50%;
+    line-height: calc(var(--cardSize) * 0.25);
+    border:1.5px solid rgb(10,70,10);
+    background: url(/img/card/attack.png);
+    background-position:center center;
+    background-size: 110%;
+    font-weight: lighter;
+}
