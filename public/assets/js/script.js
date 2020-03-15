@@ -34,4 +34,25 @@ $(document).ready(function() {
     .ajaxStop(function () {
         $('.loaderCover').css('display', 'none');
     });
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#img_preview').remove();
+                $("#img_tps").parent().append('<img id="img_preview" src="#"/>');
+                $('#img_preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $('body').on('change', 'input', function() {
+        $('#img_tps').remove();
+        $(this).parent().append('<img id="img_tps"/>');
+        readURL(this);
+    });
 });

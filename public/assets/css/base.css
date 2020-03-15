@@ -146,3 +146,12 @@ form button:hover {
 .formLogin {
     margin-top: 20px;
 }
+
+#img_tps {
+    display: none;
+}
+
+#img_preview {
+    width: 100%;
+    margin-top: 25px;
+}

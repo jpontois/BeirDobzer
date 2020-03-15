@@ -23,7 +23,9 @@ class FactionController extends AbstractController
      */
     public function index(FactionRepository $factionRepository)
     {
-        $faction = $factionRepository->findAll();
+        $faction = $factionRepository->findBy([
+            'authorFaction' => $this->getUser(),
+        ]);
 
         return $this->render('generic/list.html.twig', [
             'title' => 'Liste des factions',
@@ -47,7 +49,7 @@ class FactionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $newFaction->setAuthor($this->getUser());
+            $newFaction->setAuthorFaction($this->getUser());
 
             $em->persist($newFaction);
             $em->flush();

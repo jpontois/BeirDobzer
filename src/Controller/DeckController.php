@@ -24,7 +24,9 @@ class DeckController extends AbstractController
      */
     public function index(DeckRepository $deckRepository)
     {
-        $deck = $deckRepository->findAll();
+        $deck = $deckRepository->findBy([
+            'authorDeck' => $this->getUser(),
+        ]);
 
         return $this->render('generic/list.html.twig', [
             'title' => 'Liste des decks',

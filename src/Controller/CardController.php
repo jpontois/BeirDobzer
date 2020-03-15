@@ -23,7 +23,10 @@ class CardController extends AbstractController
      */
     public function index(CardRepository $cardRepository)
     {
-        $card = $cardRepository->findAll();
+        $card = $cardRepository->findBy([
+            'authorCard' => $this->getUser(),
+        ]);
+
 
         return $this->render('generic/list.html.twig', [
             'title' => 'Liste des cartes',
@@ -62,7 +65,7 @@ class CardController extends AbstractController
                 $newCard->setImageName($newFileName);
             }
 
-            $newCard->setAuthor($this->getUser());
+            $newCard->setAuthorCard($this->getUser());
 
             $em->persist($newCard);
             $em->flush();
